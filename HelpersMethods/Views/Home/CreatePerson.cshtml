@@ -1,0 +1,40 @@
+﻿@model HelpersMethods.Models.Person
+
+@{
+    ViewBag.Title = "Create person";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreatePerson</title>
+    <style type="type/css">
+        .dataElem{
+            background-color:blanchedalmond
+        }
+    </style>
+</head>
+<body>
+    <h2>Create Person</h2>
+
+    <form action="/Home/CreatePerson" method="post">
+        <div class="dataElem">
+           <label>PersonId</label> 
+           <input name="personId" value="@Model.PersonId" /><!--attribute name is nessasary for model binder-->
+        </div>
+        <div class="dataElem">
+            <label>First Name</label>
+            <input name="firstName" value="@Model.FirstName" />
+        </div>
+        <div class="dataElem">
+            <label>Last Name</label>
+            <input name="lastName" value="@Model.LastName" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+
+</body>
+</html>

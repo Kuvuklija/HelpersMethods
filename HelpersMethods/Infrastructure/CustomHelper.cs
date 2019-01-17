@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace HelpersMethods.Infrastructure{
 
@@ -16,6 +17,14 @@ namespace HelpersMethods.Infrastructure{
 
             div.InnerHtml = tag.ToString() + p.ToString();
             return new MvcHtmlString(div.ToString());
+        }
+
+        //public static MvcHtmlString DisplayMessage(this HtmlHelper html, string msg){ //it is vulnerability
+        //public static string DisplayMessage(this HtmlHelper html, string msg){   //1 way to protection, but whole message has encoded, with <p>
+        public static MvcHtmlString DisplayMessage(this HtmlHelper html, string msg){ //2 way more selective and encoded just I needing
+            string encodedMessage = html.Encode(msg); //2 way
+            string result = String.Format("This is the message: <p>{0}</p>", encodedMessage);
+            return new MvcHtmlString(result); 
         }
     }
 }
