@@ -15,12 +15,19 @@
         .dataElem{
             background-color:blanchedalmond
         }
+        .personClass{
+            background-color:aqua
+        }
     </style>
 </head>
 <body>
     <h2>Create Person</h2>
 
-    <form action="/Home/CreatePerson" method="post">
+    <!--<form action="/Home/CreatePerson" method="post">-->
+    <!--{ Html.BeginForm();}-->
+    @using (Html.BeginForm("CreatePerson", "Home",
+        new { id="MyIdValue"}, FormMethod.Post,
+        new { @class="personClass",data_formType="person"})){
         <div class="dataElem">
            <label>PersonId</label> 
            <input name="personId" value="@Model.PersonId" /><!--attribute name is nessasary for model binder-->
@@ -34,7 +41,8 @@
             <input name="lastName" value="@Model.LastName" />
         </div>
         <input type="submit" value="Submit" />
-    </form>
-
+    <!--</form>-->
+    <!--{ Html.EndForm();}-->
+    }
 </body>
 </html>
