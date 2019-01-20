@@ -11,7 +11,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>CreatePerson</title>
-    <style type="type/css">
+    <style type="text/css">
         .dataElem{
             background-color:blanchedalmond
         }
@@ -25,24 +25,41 @@
 
     <!--<form action="/Home/CreatePerson" method="post">-->
     <!--{ Html.BeginForm();}-->
-    @using (Html.BeginForm("CreatePerson", "Home",
+    <!--using (Html.BeginForm("CreatePerson", "Home",
         new { id="MyIdValue"}, FormMethod.Post,
-        new { @class="personClass",data_formType="person"})){
+        new { class="personClass",data_formType="person"})){-->
+    @using (Html.BeginRouteForm("FormRoute", new { }, FormMethod.Post,
+         new { @class = "personClass", data_formType = "person" }))
+    {
         <div class="dataElem">
-           <label>PersonId</label> 
-           <input name="personId" value="@Model.PersonId" /><!--attribute name is nessasary for model binder-->
+            <label>PersonId</label>
+            <!--<input name="personId" value="Model.PersonId" /><!--attribute name is nessasary for model binder-->
+            <!--Html.TextBox("personId",Model.PersonId)-->
+            <!--Html.TextBoxFor("PersonId")-->
+            @Html.TextBoxFor(m=>m.PersonId)
         </div>
         <div class="dataElem">
             <label>First Name</label>
-            <input name="firstName" value="@Model.FirstName" />
+            <!--<input name="firstName" value="Model.FirstName" />-->
+            <!--Html.TextBox("firstName", Model.FirstName)-->
+            @Html.TextBox("firstName")
         </div>
         <div class="dataElem">
             <label>Last Name</label>
-            <input name="lastName" value="@Model.LastName" />
+            <!--<input name="lastName" value="Model.LastName" />-->
+            <!--Html.TextBox("lastName",Model.LastName)-->
+            @Html.TextBox("lastName")
+        </div>
+        <div class="dataElem">
+            <label>Is Approved</label>
+            <!--<input name="lastName" value="Model.LastName" />-->
+            <!--Html.TextBox("lastName",Model.LastName)-->
+            <!--Html.CheckBox("IsApproved")-->
+            @Html.RadioButtonFor(m=>m.IsApproved, "true")
         </div>
         <input type="submit" value="Submit" />
-    <!--</form>-->
-    <!--{ Html.EndForm();}-->
+        <!--</form>-->
+        <!--{ Html.EndForm();}-->
     }
 </body>
 </html>
