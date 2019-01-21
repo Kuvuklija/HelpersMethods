@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Create person";
     Layout = "/Views/Shared/_Layout.cshtml";
+    Html.EnableClientValidation(false);
 }
 
 <!DOCTYPE html>
@@ -36,26 +37,36 @@
             <!--<input name="personId" value="Model.PersonId" /><!--attribute name is nessasary for model binder-->
             <!--Html.TextBox("personId",Model.PersonId)-->
             <!--Html.TextBoxFor("PersonId")-->
-            @Html.TextBoxFor(m=>m.PersonId)
+            <!--Html.TextBoxFor(m=>m.PersonId)-->
+            @Html.Editor("PersonId")
         </div>
         <div class="dataElem">
             <label>First Name</label>
             <!--<input name="firstName" value="Model.FirstName" />-->
             <!--Html.TextBox("firstName", Model.FirstName)-->
-            @Html.TextBox("firstName")
+            <!--Html.TextBox("firstName")-->
+            @Html.Editor("FirstName")
         </div>
         <div class="dataElem">
-            <label>Last Name</label>
+            <label>Birth Date</label>
             <!--<input name="lastName" value="Model.LastName" />-->
             <!--Html.TextBox("lastName",Model.LastName)-->
-            @Html.TextBox("lastName")
+            <!--Html.TextBox("lastName")-->
+            @Html.EditorFor(m=>m.BirthDate)
         </div>
+
         <div class="dataElem">
             <label>Is Approved</label>
             <!--<input name="lastName" value="Model.LastName" />-->
             <!--Html.TextBox("lastName",Model.LastName)-->
             <!--Html.CheckBox("IsApproved")-->
-            @Html.RadioButtonFor(m=>m.IsApproved, "true")
+            @Html.EditorFor(m=>m.IsApproved)
+        </div>
+        <div class="dataElem">
+            <label>Role</label>
+            <!--Html.DropDownListFor(m=>m.Role,
+                    new SelectList(Enum.GetNames(typeof(HelpersMethods.Models.Role))))-->
+            @Html.EditorFor(m=>m.Role)
         </div>
         <input type="submit" value="Submit" />
         <!--</form>-->
