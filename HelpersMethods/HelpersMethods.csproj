@@ -109,6 +109,7 @@
     <Content Include="Views\Shared\ProblemDisplay.cshtml" />
     <Content Include="Views\Home\CreatePerson.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\DisplayView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
