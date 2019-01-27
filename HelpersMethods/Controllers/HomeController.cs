@@ -28,5 +28,9 @@ namespace HelpersMethods.Controllers
             //return View(person);
             return View("DisplayView", person);
         }
+
+        public ActionResult IndexForVisualisationURL() {
+            return View();
+        }
     }
 }
