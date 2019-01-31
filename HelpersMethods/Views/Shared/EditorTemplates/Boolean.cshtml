@@ -2,6 +2,8 @@
 
 @if (ViewData.ModelMetadata.IsNullableValueType && Model == null) {
     @:(True) (False) <b>(Not set)</b>
-} else{
-
+} else if(Model.Value){
+    @:<b>(True)</b> (False) (Not set)
+} else {
+    @:(True) <b>(False)</b> (Not set)
 }

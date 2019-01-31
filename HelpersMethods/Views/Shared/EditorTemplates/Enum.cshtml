@@ -1,5 +1,5 @@
 ﻿@model Enum
-@Html.DropDownListFor(m=>m, Enum.GetValues(Model.GetType())
+<!--Html.DropDownListFor(m=>m, Enum.GetValues(Model.GetType())
     .Cast<Enum>()
     .Select(m=> {
         string enumVal = Enum.GetName(Model.GetType(), m);
@@ -8,4 +8,5 @@
             Text = enumVal,
             Value = enumVal
         };
-    }))
+    }))-->
+@Html.DropDownList("selectedRole", new SelectList(new[] { "All"}.Concat(Enum.GetNames(Model.GetType()))))
